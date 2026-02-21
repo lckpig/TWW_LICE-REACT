@@ -1,0 +1,916 @@
+1
+00:00:00,179 --> 00:00:03,959
+last time we discussed the basics of
+
+2
+00:00:02,040 --> 00:00:05,700
+composition the rule of thirds and
+
+3
+00:00:03,959 --> 00:00:06,839
+simple shape language to design our
+
+4
+00:00:05,700 --> 00:00:08,820
+panels
+
+5
+00:00:06,839 --> 00:00:12,599
+David Fincher and welcome back to my
+
+6
+00:00:08,820 --> 00:00:14,460
+course on creating the comic book page
+
+7
+00:00:12,599 --> 00:00:16,260
+as the artist we want to visualize the
+
+8
+00:00:14,460 --> 00:00:17,820
+story unfolding from panel to panel in
+
+9
+00:00:16,260 --> 00:00:19,800
+the most compelling and engaging way
+
+10
+00:00:17,820 --> 00:00:21,660
+possible composing each panel the way
+
+11
+00:00:19,800 --> 00:00:23,699
+cinematographer might plan shots for a
+
+12
+00:00:21,660 --> 00:00:25,260
+movie using different lenses in varying
+
+13
+00:00:23,699 --> 00:00:27,060
+camera placement to more effectively
+
+14
+00:00:25,260 --> 00:00:28,320
+tell the story and how we position the
+
+15
+00:00:27,060 --> 00:00:30,359
+camera for the reader's point of view
+
+16
+00:00:28,320 --> 00:00:32,399
+can have a major impact on the way the
+
+17
+00:00:30,359 --> 00:00:34,079
+reader experiences the story if you want
+
+18
+00:00:32,399 --> 00:00:36,620
+to follow along with me as we design our
+
+19
+00:00:34,079 --> 00:00:39,059
+own comic page head on over to proco.com
+
+20
+00:00:36,620 --> 00:00:40,980
+comic page and sign up for the course
+
+21
+00:00:39,059 --> 00:00:42,420
+we'll have more lessons and go much
+
+22
+00:00:40,980 --> 00:00:44,040
+further in depth into what we learned
+
+23
+00:00:42,420 --> 00:00:47,160
+here we'll be posting premium episodes
+
+24
+00:00:44,040 --> 00:00:48,719
+regularly so I hope to see you there all
+
+25
+00:00:47,160 --> 00:00:50,700
+right let's get started
+
+26
+00:00:48,719 --> 00:00:52,440
+I've sketched in three panels and in the
+
+27
+00:00:50,700 --> 00:00:53,660
+first panel I'm going to use my rule of
+
+28
+00:00:52,440 --> 00:00:56,340
+thirds and I'm going to draw a figure
+
+29
+00:00:53,660 --> 00:00:59,160
+pretty small on my panel
+
+30
+00:00:56,340 --> 00:01:00,780
+my upper third just to kind of fill it
+
+31
+00:00:59,160 --> 00:01:02,820
+out I'll draw some trees and some
+
+32
+00:01:00,780 --> 00:01:04,860
+background there's a very simple
+
+33
+00:01:02,820 --> 00:01:06,600
+representation of the panel and this is
+
+34
+00:01:04,860 --> 00:01:09,240
+what we would call an establishing shot
+
+35
+00:01:06,600 --> 00:01:10,740
+or a long shot and in this panel we can
+
+36
+00:01:09,240 --> 00:01:12,720
+see the figure we can see the whole
+
+37
+00:01:10,740 --> 00:01:14,460
+background around the figure it slows
+
+38
+00:01:12,720 --> 00:01:16,020
+our pacing a little bit and it serves to
+
+39
+00:01:14,460 --> 00:01:17,520
+showcase our figure but also the
+
+40
+00:01:16,020 --> 00:01:18,840
+background around the figure so we
+
+41
+00:01:17,520 --> 00:01:21,060
+really get a sense of the environment
+
+42
+00:01:18,840 --> 00:01:22,860
+that that figure exists in but we don't
+
+43
+00:01:21,060 --> 00:01:24,360
+get anywhere near as much a sense of
+
+44
+00:01:22,860 --> 00:01:26,400
+what that figure is about whether
+
+45
+00:01:24,360 --> 00:01:28,259
+thinking or what they're feeling and
+
+46
+00:01:26,400 --> 00:01:30,299
+what they're doing so from here we're
+
+47
+00:01:28,259 --> 00:01:31,920
+going to move into a medium close-up and
+
+48
+00:01:30,299 --> 00:01:33,479
+in this shot we can see much more of our
+
+49
+00:01:31,920 --> 00:01:35,820
+figure but we can still see some
+
+50
+00:01:33,479 --> 00:01:37,619
+background and in a medium close-up we
+
+51
+00:01:35,820 --> 00:01:39,540
+can see not only the face and much more
+
+52
+00:01:37,619 --> 00:01:40,860
+of the expression that our character has
+
+53
+00:01:39,540 --> 00:01:42,780
+but we can also see what they're doing
+
+54
+00:01:40,860 --> 00:01:44,159
+with their hands and while it showcases
+
+55
+00:01:42,780 --> 00:01:46,439
+some of our background it does a much
+
+56
+00:01:44,159 --> 00:01:48,060
+better job of showcasing our figure
+
+57
+00:01:46,439 --> 00:01:50,280
+in our last example we're going to move
+
+58
+00:01:48,060 --> 00:01:52,380
+into a close-up of our figure's head we
+
+59
+00:01:50,280 --> 00:01:55,880
+can move into a close-up or really an
+
+60
+00:01:52,380 --> 00:01:55,880
+extreme close-up extreme close-up
+
+61
+00:01:55,920 --> 00:01:59,220
+close-up lean to an eye or it can be a
+
+62
+00:01:57,840 --> 00:02:01,079
+hand or whatever it is that you want to
+
+63
+00:01:59,220 --> 00:02:02,820
+showcase and using close-ups really
+
+64
+00:02:01,079 --> 00:02:04,560
+allows us to focus in on our character
+
+65
+00:02:02,820 --> 00:02:06,960
+and see subtlety that we really can't
+
+66
+00:02:04,560 --> 00:02:08,520
+see from a greater distance
+
+67
+00:02:06,960 --> 00:02:10,500
+and these three shots working in
+
+68
+00:02:08,520 --> 00:02:12,900
+conjunction with each other give you a
+
+69
+00:02:10,500 --> 00:02:14,940
+sense of your environment in a long shot
+
+70
+00:02:12,900 --> 00:02:17,459
+then move in on the characters for
+
+71
+00:02:14,940 --> 00:02:19,379
+action and so we can see a better sense
+
+72
+00:02:17,459 --> 00:02:21,420
+of what our characters are doing and
+
+73
+00:02:19,379 --> 00:02:23,220
+then in extreme close-ups we really get
+
+74
+00:02:21,420 --> 00:02:24,720
+a strong sense of exactly what our
+
+75
+00:02:23,220 --> 00:02:25,920
+characters are thinking and get a much
+
+76
+00:02:24,720 --> 00:02:27,720
+better sense of what they're all about
+
+77
+00:02:25,920 --> 00:02:29,640
+and you'll notice if you read comic
+
+78
+00:02:27,720 --> 00:02:31,560
+books or watch movies that you'll always
+
+79
+00:02:29,640 --> 00:02:33,360
+see a shot whether it's at the beginning
+
+80
+00:02:31,560 --> 00:02:35,280
+of a scene the end of the scene or the
+
+81
+00:02:33,360 --> 00:02:37,200
+middle of the scene where we really pull
+
+82
+00:02:35,280 --> 00:02:39,120
+out so we can see the environment that
+
+83
+00:02:37,200 --> 00:02:40,560
+our characters exist within then we move
+
+84
+00:02:39,120 --> 00:02:42,480
+in on the characters and then we move
+
+85
+00:02:40,560 --> 00:02:44,340
+even closer so we get a real sense of
+
+86
+00:02:42,480 --> 00:02:46,200
+the emotion behind the scene
+
+87
+00:02:44,340 --> 00:02:48,480
+finally we need to talk about point of
+
+88
+00:02:46,200 --> 00:02:50,160
+view in my first panel I'm going to be
+
+89
+00:02:48,480 --> 00:02:51,599
+looking up at my figure and so I'm going
+
+90
+00:02:50,160 --> 00:02:53,160
+to see the figure from below which means
+
+91
+00:02:51,599 --> 00:02:54,780
+that I've got a horizon line that's well
+
+92
+00:02:53,160 --> 00:02:56,400
+below my panel and that would represent
+
+93
+00:02:54,780 --> 00:02:58,200
+my eye line my viewer is actually
+
+94
+00:02:56,400 --> 00:02:59,879
+looking up at the figure when you choose
+
+95
+00:02:58,200 --> 00:03:02,280
+a low angle and you look up at a figure
+
+96
+00:02:59,879 --> 00:03:04,200
+or a building or an object it makes that
+
+97
+00:03:02,280 --> 00:03:06,780
+building object or figure large and
+
+98
+00:03:04,200 --> 00:03:09,239
+imposing and even looming and for a
+
+99
+00:03:06,780 --> 00:03:11,040
+powerful hero or for a villain it's a
+
+100
+00:03:09,239 --> 00:03:13,560
+very effective technique to make them
+
+101
+00:03:11,040 --> 00:03:15,360
+look Larger than Life in my next panel
+
+102
+00:03:13,560 --> 00:03:17,099
+we're going to do the exact opposite and
+
+103
+00:03:15,360 --> 00:03:18,659
+we're going to be well above our figure
+
+104
+00:03:17,099 --> 00:03:20,159
+and we're going to be looking down at
+
+105
+00:03:18,659 --> 00:03:21,959
+them and it's essentially the same
+
+106
+00:03:20,159 --> 00:03:24,060
+figure just drawn from a different angle
+
+107
+00:03:21,959 --> 00:03:26,159
+and it makes them look diminished and a
+
+108
+00:03:24,060 --> 00:03:28,140
+little smaller and it's a way to make a
+
+109
+00:03:26,159 --> 00:03:29,879
+figure look maybe even oppressed or sad
+
+110
+00:03:28,140 --> 00:03:31,620
+and it's something that psychologically
+
+111
+00:03:29,879 --> 00:03:33,060
+can have an impact even if they don't
+
+112
+00:03:31,620 --> 00:03:35,879
+understand that you're using these
+
+113
+00:03:33,060 --> 00:03:37,860
+techniques to Garner that reaction our
+
+114
+00:03:35,879 --> 00:03:39,540
+last example is a profile and it's a
+
+115
+00:03:37,860 --> 00:03:43,260
+straight on shot and it gives us a very
+
+116
+00:03:39,540 --> 00:03:44,819
+stoic solid Wyatt kind of a panel not
+
+117
+00:03:43,260 --> 00:03:46,200
+only is it important to know that you
+
+118
+00:03:44,819 --> 00:03:48,780
+can create a different emotional impact
+
+119
+00:03:46,200 --> 00:03:50,819
+using different angles but it also helps
+
+120
+00:03:48,780 --> 00:03:52,739
+to vary your storytelling so you don't
+
+121
+00:03:50,819 --> 00:03:56,280
+have the same shot from panel to panel
+
+122
+00:03:52,739 --> 00:03:59,159
+to panel which can become very boring
+
+123
+00:03:56,280 --> 00:04:01,080
+hi David's course is currently 20 off
+
+124
+00:03:59,159 --> 00:04:03,959
+for the Black Friday sale go to
+
+125
+00:04:01,080 --> 00:04:07,080
+proco.com comic page and use the code
+
+126
+00:04:03,959 --> 00:04:09,540
+black20 to get the discount and so an
+
+127
+00:04:07,080 --> 00:04:10,860
+example of a page done that way what I
+
+128
+00:04:09,540 --> 00:04:13,500
+have here is a perfectly serviceable
+
+129
+00:04:10,860 --> 00:04:16,260
+page it works the storytelling can flow
+
+130
+00:04:13,500 --> 00:04:18,180
+but it is outrageously boring and so
+
+131
+00:04:16,260 --> 00:04:19,799
+let's do that same page again and I'm
+
+132
+00:04:18,180 --> 00:04:21,840
+going to start with the same panel that
+
+133
+00:04:19,799 --> 00:04:24,479
+I did in the first version It's a medium
+
+134
+00:04:21,840 --> 00:04:26,160
+shot of my figure and now in my second
+
+135
+00:04:24,479 --> 00:04:27,960
+panel I'm going to show my other figure
+
+136
+00:04:26,160 --> 00:04:30,120
+and I'm going to zoom in much closer so
+
+137
+00:04:27,960 --> 00:04:31,680
+I get a much bigger shot of his face and
+
+138
+00:04:30,120 --> 00:04:33,479
+see subtlety that we really can't see
+
+139
+00:04:31,680 --> 00:04:35,460
+from a greater distance
+
+140
+00:04:33,479 --> 00:04:37,199
+and now in my third panel I'm going to
+
+141
+00:04:35,460 --> 00:04:39,360
+show both figures I'm going to show them
+
+142
+00:04:37,199 --> 00:04:42,000
+from above figure's got his arms crossed
+
+143
+00:04:39,360 --> 00:04:44,520
+my other figure is looking at him
+
+144
+00:04:42,000 --> 00:04:47,100
+gesturing very quickly drawn just to
+
+145
+00:04:44,520 --> 00:04:48,960
+establish my figures on the page
+
+146
+00:04:47,100 --> 00:04:51,300
+and so for this one I've pulled out it's
+
+147
+00:04:48,960 --> 00:04:52,620
+a much longer shot and I can see my
+
+148
+00:04:51,300 --> 00:04:54,840
+background around them whatever it
+
+149
+00:04:52,620 --> 00:04:57,720
+happens to be and now in my last panel
+
+150
+00:04:54,840 --> 00:04:59,100
+I'm going to come in behind this
+
+151
+00:04:57,720 --> 00:05:00,900
+character's head maybe I'll even
+
+152
+00:04:59,100 --> 00:05:03,300
+silhouette it and we'll see our first
+
+153
+00:05:00,900 --> 00:05:05,280
+character and so we get a two shot like
+
+154
+00:05:03,300 --> 00:05:07,259
+this and you can see that in this
+
+155
+00:05:05,280 --> 00:05:09,540
+example I've changed up my sizing quite
+
+156
+00:05:07,259 --> 00:05:11,820
+a bit more I have just a medium shot
+
+157
+00:05:09,540 --> 00:05:13,680
+here and then I've closed in much more
+
+158
+00:05:11,820 --> 00:05:15,540
+with a larger head and now I've zoomed
+
+159
+00:05:13,680 --> 00:05:17,280
+out much more here and moved my camera
+
+160
+00:05:15,540 --> 00:05:18,780
+so you're looking at the scene from
+
+161
+00:05:17,280 --> 00:05:20,520
+above and it gives you a different
+
+162
+00:05:18,780 --> 00:05:22,380
+perspective and just changes things up
+
+163
+00:05:20,520 --> 00:05:24,960
+and then in the last panel I've
+
+164
+00:05:22,380 --> 00:05:26,820
+silhouetted a head in the foreground and
+
+165
+00:05:24,960 --> 00:05:29,820
+included both figures in the scene while
+
+166
+00:05:26,820 --> 00:05:31,620
+focusing on my original first figure
+
+167
+00:05:29,820 --> 00:05:32,940
+and it just makes it a lot more visually
+
+168
+00:05:31,620 --> 00:05:34,919
+interesting and you really want to think
+
+169
+00:05:32,940 --> 00:05:37,259
+in terms of this for all of your pages
+
+170
+00:05:34,919 --> 00:05:39,060
+you want to move the camera around zoom
+
+171
+00:05:37,259 --> 00:05:41,039
+in zoom out you want to have bigger
+
+172
+00:05:39,060 --> 00:05:42,479
+shots smaller shots and juxtapose those
+
+173
+00:05:41,039 --> 00:05:44,400
+with each other to keep things more
+
+174
+00:05:42,479 --> 00:05:46,320
+visually interesting and now there's one
+
+175
+00:05:44,400 --> 00:05:47,699
+other major Pitfall that's very easy to
+
+176
+00:05:46,320 --> 00:05:49,680
+run into with your storytelling if
+
+177
+00:05:47,699 --> 00:05:52,139
+you're not aware of it going in and that
+
+178
+00:05:49,680 --> 00:05:54,120
+is the 180 Rule and all that is from
+
+179
+00:05:52,139 --> 00:05:55,500
+overhead I'm going to draw a line and
+
+180
+00:05:54,120 --> 00:05:57,360
+I'm going to draw an arc around that
+
+181
+00:05:55,500 --> 00:06:00,060
+line just about like this and what this
+
+182
+00:05:57,360 --> 00:06:01,380
+line represents is the limit of where I
+
+183
+00:06:00,060 --> 00:06:03,419
+can put my camera now I can put this
+
+184
+00:06:01,380 --> 00:06:05,460
+line anywhere but generally speaking you
+
+185
+00:06:03,419 --> 00:06:07,620
+want to keep it to one side of whatever
+
+186
+00:06:05,460 --> 00:06:09,720
+it is that you're showing and so that
+
+187
+00:06:07,620 --> 00:06:11,580
+means that I can put the camera here and
+
+188
+00:06:09,720 --> 00:06:14,340
+look at the scene this way I can put it
+
+189
+00:06:11,580 --> 00:06:15,960
+here anywhere along here and really it's
+
+190
+00:06:14,340 --> 00:06:18,960
+not just a line you can call it like a
+
+191
+00:06:15,960 --> 00:06:20,759
+half a sphere here's my figure and so I
+
+192
+00:06:18,960 --> 00:06:22,080
+could visualize My Scene all the way
+
+193
+00:06:20,759 --> 00:06:24,180
+from the ground all the way from the top
+
+194
+00:06:22,080 --> 00:06:27,020
+what I want to avoid though is putting
+
+195
+00:06:24,180 --> 00:06:27,020
+the camera over here
+
+196
+00:06:27,440 --> 00:06:31,979
+and so let's take a look at how that
+
+197
+00:06:29,520 --> 00:06:33,960
+works by drawing a couple of panels and
+
+198
+00:06:31,979 --> 00:06:36,120
+so in panel one I've got my two figures
+
+199
+00:06:33,960 --> 00:06:38,100
+I'm looking at it from about this level
+
+200
+00:06:36,120 --> 00:06:39,960
+and I'm looking directly into the scene
+
+201
+00:06:38,100 --> 00:06:41,940
+and I could have chosen for this first
+
+202
+00:06:39,960 --> 00:06:43,440
+panel any Viewpoint I wanted I could
+
+203
+00:06:41,940 --> 00:06:44,400
+have went directly from the top all the
+
+204
+00:06:43,440 --> 00:06:46,380
+way to the floor it really doesn't
+
+205
+00:06:44,400 --> 00:06:48,180
+matter but the point is that I've picked
+
+206
+00:06:46,380 --> 00:06:50,039
+an angle once I've drawn my first panel
+
+207
+00:06:48,180 --> 00:06:51,660
+and to make this easier I'm going to
+
+208
+00:06:50,039 --> 00:06:53,819
+make one character light and another
+
+209
+00:06:51,660 --> 00:06:55,319
+character dark just so we can track the
+
+210
+00:06:53,819 --> 00:06:58,020
+characters as they go into the next
+
+211
+00:06:55,319 --> 00:07:00,000
+panel now in my next panel I'm going to
+
+212
+00:06:58,020 --> 00:07:01,860
+draw my same two figures again and now
+
+213
+00:07:00,000 --> 00:07:04,020
+this character is dark this character is
+
+214
+00:07:01,860 --> 00:07:05,639
+light so what's happened from above I
+
+215
+00:07:04,020 --> 00:07:07,860
+was viewing the scene from this side
+
+216
+00:07:05,639 --> 00:07:10,500
+this Arc and what I did is I just moved
+
+217
+00:07:07,860 --> 00:07:12,900
+the camera over here and so visually
+
+218
+00:07:10,500 --> 00:07:14,699
+what you see is a flipping of your
+
+219
+00:07:12,900 --> 00:07:17,100
+characters it looks like characters have
+
+220
+00:07:14,699 --> 00:07:20,099
+just instantly moved in the scene as
+
+221
+00:07:17,100 --> 00:07:22,919
+opposed to just moving the camera
+
+222
+00:07:20,099 --> 00:07:25,340
+yeah if you want more lessons from David
+
+223
+00:07:22,919 --> 00:07:28,080
+check out his course at proco.com
+
+224
+00:07:25,340 --> 00:07:30,120
+comicpage where he teaches a whole lot
+
+225
+00:07:28,080 --> 00:07:33,300
+of stuff about comic book penciling
+
+226
+00:07:30,120 --> 00:07:35,460
+shading inking and composition it's a
+
+227
+00:07:33,300 --> 00:07:39,319
+master class on comic making from start
+
+228
+00:07:35,460 --> 00:07:39,319
+to finish hope to see you there
+
+229
+00:07:40,740 --> 00:07:50,139
+[Music]
+
