@@ -1,0 +1,231 @@
+{
+  "id": "page-04",
+  "index": 3,
+  "title": "CASCADA — Densidad Máxima",
+  "backgroundColor": "#050510",
+  "aspectRatio": "9 / 16",
+  "initialWeather": "none",
+  "pacingProfile": {
+    "totalTaps": 6,
+    "mood": "breath",
+    "hasCliffhanger": true
+  },
+  "panels": [
+    {
+      "id": "p04_panel_01",
+      "label": "Plano general — Fondo épico con niebla (background video)",
+      "artNote": "Panel FONDO. Ocupa 100% de la página. Z-Index bajo (5) para que todos los otros panels aparezcan encima. Activa la niebla en T=2.0s.",
+      "x": 0,
+      "y": 0,
+      "width": 100,
+      "height": 100,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "LONG",
+      "angle": "BIRD_EYE",
+      "entryDirection": "FADE",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-04/p04_v01_long_loop.mp4"
+      },
+      "zIndex": 5,
+      "keyframes": [
+        {
+          "time": 2.0,
+          "type": "weather",
+          "data": { "weather": "fog", "transitionDuration": 3.0 },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "neutral",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p04_panel_02",
+      "label": "Extreme close-up perfil — Personaje A (strip izquierdo)",
+      "artNote": "Panel 2. Strip vertical izquierdo. Ojos del personaje A, perfil mirando hacia la derecha. Entrada desde LEFT.",
+      "x": 0,
+      "y": 10,
+      "width": 33,
+      "height": 50,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "EXTREME_CLOSE_UP",
+      "angle": "PROFILE",
+      "entryDirection": "LEFT",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-04/p04_v02_xclose_loop.mp4"
+      },
+      "zIndex": 15,
+      "keyframes": [],
+      "rule180": {
+        "axisX": "right",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p04_panel_03",
+      "label": "Extreme close-up frontal — Personaje B (strip central)",
+      "artNote": "Panel 3. Strip vertical central. Ojos frontales. Entrada desde TOP (única vez que se prueba TOP en el cómic). Onomatopeya elastic.",
+      "x": 34,
+      "y": 10,
+      "width": 33,
+      "height": 50,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "EXTREME_CLOSE_UP",
+      "angle": "NORMAL",
+      "entryDirection": "TOP",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-04/p04_v03_xclose_loop.mp4"
+      },
+      "zIndex": 16,
+      "keyframes": [
+        {
+          "time": 0.5,
+          "type": "onomatopoeia",
+          "data": {
+            "text": "!",
+            "x": 50,
+            "y": 15,
+            "animation": "elastic",
+            "fontSize": 28,
+            "color": "#ffffff",
+            "displayDuration": 1.2
+          },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "neutral",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p04_panel_04",
+      "label": "Extreme close-up perfil — Personaje C (strip derecho)",
+      "artNote": "Panel 4. Strip vertical derecho. Ojos mirando hacia la izquierda (coherencia espacial con panel_02). Flash blanco suave.",
+      "x": 67,
+      "y": 10,
+      "width": 33,
+      "height": 50,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "EXTREME_CLOSE_UP",
+      "angle": "PROFILE",
+      "entryDirection": "RIGHT",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-04/p04_v04_xclose_loop.mp4"
+      },
+      "zIndex": 17,
+      "keyframes": [
+        {
+          "time": 0.5,
+          "type": "flash",
+          "data": { "color": "rgba(255, 255, 255, 0.35)", "duration": 0.6 },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "left",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p04_panel_05",
+      "label": "Close-up — El orbe revelado (panel overlay central)",
+      "artNote": "Panel 5. OVERLAY central que aparece encima de los strips. Z-Index muy alto (50). Entrada SCALE. El objeto clave de la historia.",
+      "x": 20,
+      "y": 35,
+      "width": 60,
+      "height": 35,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "CLOSE_UP",
+      "angle": "NORMAL",
+      "entryDirection": "SCALE",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-04/p04_v05_close_loop.mp4"
+      },
+      "zIndex": 50,
+      "keyframes": [
+        {
+          "time": 1.0,
+          "type": "onomatopoeia",
+          "data": {
+            "text": "...",
+            "x": 55,
+            "y": 15,
+            "animation": "pop",
+            "fontSize": 20,
+            "color": "rgba(180,200,240,0.8)",
+            "displayDuration": 2.5
+          },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "neutral",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p04_panel_06",
+      "label": "Plano general bajo — Onda de energía panorámica (CLIFFHANGER)",
+      "artNote": "Panel 6. Panel inferior completo. TYPE_B_ACTION. Timeline de 5 keyframes: shake + flash dorado + SFX + niebla off + onomatopeya elastic. El cliffhanger visual del SWIPE UP.",
+      "x": 0,
+      "y": 72,
+      "width": 100,
+      "height": 28,
+      "panelType": "TYPE_B_ACTION",
+      "shotType": "LONG",
+      "angle": "LOW",
+      "entryDirection": "BOTTOM",
+      "videoSources": {
+        "action": "/src/assets/pages/page-04/p04_v06_long_action.mp4",
+        "loop": "/src/assets/pages/page-04/p04_v06_long_loop.mp4"
+      },
+      "zIndex": 20,
+      "keyframes": [
+        {
+          "time": 0.5,
+          "type": "cameraShake",
+          "data": { "intensity": 6, "duration": 0.5, "axis": "both" },
+          "once": true
+        },
+        {
+          "time": 0.8,
+          "type": "flash",
+          "data": { "color": "rgba(255, 200, 50, 0.65)", "duration": 0.5 },
+          "once": true
+        },
+        {
+          "time": 1.0,
+          "type": "sfx",
+          "data": { "audioId": "sfx_rumble", "volume": 0.85 },
+          "once": true
+        },
+        {
+          "time": 1.5,
+          "type": "weather",
+          "data": { "weather": "none", "transitionDuration": 2.0 },
+          "once": true
+        },
+        {
+          "time": 2.0,
+          "type": "onomatopoeia",
+          "data": {
+            "text": "KRRRMMM...",
+            "x": 40,
+            "y": 25,
+            "animation": "elastic",
+            "fontSize": 34,
+            "color": "#cc9944",
+            "displayDuration": 2.0
+          },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "neutral",
+        "axisY": "neutral"
+      }
+    }
+  ]
+}

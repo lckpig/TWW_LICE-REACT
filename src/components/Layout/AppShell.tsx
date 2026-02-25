@@ -12,7 +12,7 @@ interface AppShellProps {
 // ─── AppShell — Estructura Base de la Aplicación ─────────────────────────────
 // Proporciona:
 //   1. El contenedor visual centrado (viewport)
-//   2. Los elementos <audio> globales persistentes (lluvia, motores)
+//   2. Los elementos <audio> globales persistentes (lluvia, viento)
 //      que sobreviven entre viñetas porque están FUERA del componente Page.
 //   3. El HUD mínimo de la UI (botón mute)
 //
@@ -20,6 +20,7 @@ interface AppShellProps {
 // las escenas y contiene los AudioSource de ambiente global.
 export default function AppShell({ children }: AppShellProps) {
   const rainAudioRef = useRef<HTMLAudioElement | null>(null)
+  const windAudioRef = useRef<HTMLAudioElement | null>(null)
   const { isMuted, toggleMute } = useUI()
   const globalWeather = useAppStore(selectGlobalWeather)
 
@@ -32,17 +33,31 @@ export default function AppShell({ children }: AppShellProps) {
       audioManager.registerGlobalAudio('ambient_rain', rainEl)
     }
 
+    const windEl = windAudioRef.current
+    if (windEl) {
+      windEl.volume = AMBIENT_VOLUME
+      windEl.loop = true
+      audioManager.registerGlobalAudio('ambient_wind', windEl)
+    }
+
     return () => {
       audioManager.unregisterGlobalAudio('ambient_rain')
+      audioManager.unregisterGlobalAudio('ambient_wind')
     }
   }, [])
 
-  // ── Reproduce/detiene el audio de lluvia según el clima global ────────────
+  // ── Reproduce/detiene los audios globales según el clima actual ───────────
   useEffect(() => {
     if (globalWeather === 'rain') {
       audioManager.playGlobalAudio('ambient_rain')
     } else {
       audioManager.stopGlobalAudio('ambient_rain', 1.5)
+    }
+
+    if (globalWeather === 'dust') {
+      audioManager.playGlobalAudio('ambient_wind')
+    } else {
+      audioManager.stopGlobalAudio('ambient_wind', 1.5)
     }
   }, [globalWeather])
 
@@ -67,6 +82,14 @@ export default function AppShell({ children }: AppShellProps) {
       <audio
         ref={rainAudioRef}
         src="/src/assets/shared/ambient_rain.mp3"
+        preload="auto"
+        style={{ display: 'none' }}
+      />
+
+      {/* Audio global de viento/polvo (clima dust) */}
+      <audio
+        ref={windAudioRef}
+        src="/src/assets/shared/ambient_wind.mp3"
         preload="auto"
         style={{ display: 'none' }}
       />

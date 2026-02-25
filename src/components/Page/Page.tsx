@@ -1,4 +1,4 @@
-import { useRef, useCallback, useState } from 'react'
+import { useRef, useCallback, useState, useEffect } from 'react'
 import { gsap } from 'gsap'
 import Panel from '@/components/Panel/Panel'
 import Onomatopoeia, { type OnomatopoeiaInstance } from '@/components/Overlays/Onomatopoeia'
@@ -96,6 +96,17 @@ export default function Page({ config }: PageProps) {
     onSwipeUp: handleSwipeUp,
   })
 
+  // ── Auto-reveal del primer panel al cargar la página ─────────────────────
+  // currentPanelIndex empieza en -1 (ningún panel visible). Este efecto avanza
+  // automáticamente al panel 0 al montar, para que el usuario vea algo sin
+  // necesitar un TAP previo. Se dispara solo cuando cambia la página (config.id).
+  useEffect(() => {
+    if (currentPanelIndex === -1 && config.panels.length > 0) {
+      advancePanel()
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [config.id])
+
   // ── Sincronización de audio ────────────────────────────────────────────────
   useAudioSync({
     activePanelId: activeAudioId || null,
@@ -106,6 +117,7 @@ export default function Page({ config }: PageProps) {
     <div
       ref={registerRefs}
       className={styles.page}
+      data-cliffhanger={config.pacingProfile.hasCliffhanger ? 'true' : 'false'}
       style={{
         backgroundColor,
         aspectRatio: config.aspectRatio ?? ASPECT_RATIO_CSS,

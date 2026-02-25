@@ -1,0 +1,189 @@
+{
+  "id": "page-03",
+  "index": 2,
+  "title": "CONTROL REMOTO — El Poder de la Causalidad",
+  "backgroundColor": "#0a1020",
+  "aspectRatio": "9 / 16",
+  "initialWeather": "none",
+  "pacingProfile": {
+    "totalTaps": 4,
+    "mood": "tension",
+    "hasCliffhanger": false
+  },
+  "panels": [
+    {
+      "id": "p03_panel_01",
+      "label": "Plano medio — Máquina/generador funcionando",
+      "artNote": "Panel 1. Zona izquierda superior. La máquina vibra constantemente. El shake suave simula la vibración mecánica continua. Objetivo del Control Remoto.",
+      "x": 0,
+      "y": 0,
+      "width": 45,
+      "height": 40,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "MEDIUM",
+      "angle": "NORMAL",
+      "entryDirection": "LEFT",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-03/p03_v01_med_loop.mp4"
+      },
+      "zIndex": 10,
+      "keyframes": [
+        {
+          "time": 0.5,
+          "type": "cameraShake",
+          "data": { "intensity": 2, "duration": 3.0, "axis": "both" },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "right",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p03_panel_02",
+      "label": "Close-up picado — Monitor con lecturas de datos",
+      "artNote": "Panel 2. Zona derecha superior. Ángulo HIGH (picado sobre la pantalla). Activa la nieve para indicar el frío de la sala de máquinas. Objetivo secundario del Control Remoto.",
+      "x": 47,
+      "y": 0,
+      "width": 53,
+      "height": 40,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "CLOSE_UP",
+      "angle": "HIGH",
+      "entryDirection": "RIGHT",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-03/p03_v02_close_loop.mp4"
+      },
+      "zIndex": 10,
+      "keyframes": [
+        {
+          "time": 1.0,
+          "type": "weather",
+          "data": { "weather": "snow", "transitionDuration": 2.0 },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "neutral",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p03_panel_03",
+      "label": "Plano medio perfil — Personaje camina hacia la consola",
+      "artNote": "Panel 3. Centro inferior. Ángulo PROFILE. Entrada SCALE (aparece desde el centro). El personaje avanza de izquierda a derecha.",
+      "x": 5,
+      "y": 42,
+      "width": 90,
+      "height": 28,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "MEDIUM",
+      "angle": "PROFILE",
+      "entryDirection": "SCALE",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-03/p03_v03_med_loop.mp4"
+      },
+      "zIndex": 11,
+      "keyframes": [
+        {
+          "time": 1.0,
+          "type": "onomatopoeia",
+          "data": {
+            "text": "TAP TAP",
+            "x": 40,
+            "y": 70,
+            "animation": "pop",
+            "fontSize": 16,
+            "color": "rgba(180,190,200,0.8)",
+            "displayDuration": 1.5
+          },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "right",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p03_panel_04",
+      "label": "Close-up — Personaje arranca el cable de la consola",
+      "artNote": "Panel 4. Zona inferior derecha. TYPE_B_ACTION. Timeline encadenado de 6 keyframes que demuestran el sistema de Control Remoto completo: afecta a panel_01 (dimmed+ambientVolume) y panel_02 (stopped), cambia el clima, flash azul y onomatopeya.",
+      "x": 30,
+      "y": 72,
+      "width": 70,
+      "height": 28,
+      "panelType": "TYPE_B_ACTION",
+      "shotType": "CLOSE_UP",
+      "angle": "NORMAL",
+      "entryDirection": "RIGHT",
+      "videoSources": {
+        "action": "/src/assets/pages/page-03/p03_v04_close_action.mp4",
+        "loop": "/src/assets/pages/page-03/p03_v04_close_loop.mp4"
+      },
+      "zIndex": 12,
+      "keyframes": [
+        {
+          "time": 0.1,
+          "type": "visualControl",
+          "data": {
+            "targetPanelId": "p03_panel_01",
+            "videoState": "dimmed",
+            "cssFilter": "brightness(0.3) saturate(0.2)"
+          },
+          "once": true
+        },
+        {
+          "time": 0.2,
+          "type": "ambientVolume",
+          "data": {
+            "targetPanelId": "p03_panel_01",
+            "volume": 0.0,
+            "fadeDuration": 1.0
+          },
+          "once": true
+        },
+        {
+          "time": 0.5,
+          "type": "visualControl",
+          "data": {
+            "targetPanelId": "p03_panel_02",
+            "videoState": "stopped"
+          },
+          "once": true
+        },
+        {
+          "time": 0.8,
+          "type": "weather",
+          "data": { "weather": "none", "transitionDuration": 1.0 },
+          "once": true
+        },
+        {
+          "time": 1.0,
+          "type": "flash",
+          "data": { "color": "rgba(100, 150, 255, 0.75)", "duration": 0.5 },
+          "once": true
+        },
+        {
+          "time": 1.2,
+          "type": "onomatopoeia",
+          "data": {
+            "text": "CLANK!",
+            "x": 40,
+            "y": 30,
+            "animation": "slam",
+            "fontSize": 38,
+            "color": "#88aacc",
+            "displayDuration": 1.5
+          },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "right",
+        "axisY": "neutral"
+      }
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "id": "page-05",
+  "index": 4,
+  "title": "CLÍMAX — La Prueba Final",
+  "backgroundColor": "#0a0a0a",
+  "aspectRatio": "9 / 16",
+  "initialWeather": "none",
+  "pacingProfile": {
+    "totalTaps": 5,
+    "mood": "tension",
+    "hasCliffhanger": true
+  },
+  "panels": [
+    {
+      "id": "p05_panel_01",
+      "label": "Plano general — Campo de batalla con polvo (dust)",
+      "artNote": "Panel 1. Tercio superior completo. Establece el campo de batalla. Activa el clima dust en T=1.0s. Es el objetivo del visualControl 'hidden' del panel_04.",
+      "x": 0,
+      "y": 0,
+      "width": 100,
+      "height": 30,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "LONG",
+      "angle": "NORMAL",
+      "entryDirection": "FADE",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-05/p05_v01_long_loop.mp4"
+      },
+      "zIndex": 10,
+      "keyframes": [
+        {
+          "time": 1.0,
+          "type": "weather",
+          "data": { "weather": "dust", "transitionDuration": 2.0 },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "neutral",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p05_panel_02",
+      "label": "Plano medio bajo — Personaje carga (TYPE_B_ACTION)",
+      "artNote": "Panel 2. Mitad izquierda. TYPE_B_ACTION: carga hacia adelante (acción) → postura de combate (loop). SFX de grito de batalla. Objetivo de ambientVolume del panel_03.",
+      "x": 0,
+      "y": 32,
+      "width": 50,
+      "height": 30,
+      "panelType": "TYPE_B_ACTION",
+      "shotType": "MEDIUM",
+      "angle": "LOW",
+      "entryDirection": "LEFT",
+      "videoSources": {
+        "action": "/src/assets/pages/page-05/p05_v02_med_action.mp4",
+        "loop": "/src/assets/pages/page-05/p05_v02_med_loop.mp4"
+      },
+      "zIndex": 11,
+      "keyframes": [
+        {
+          "time": 0.5,
+          "type": "sfx",
+          "data": { "audioId": "sfx_charge", "volume": 0.85 },
+          "once": true
+        },
+        {
+          "time": 0.8,
+          "type": "cameraShake",
+          "data": { "intensity": 5, "duration": 0.4, "axis": "both" },
+          "once": true
+        },
+        {
+          "time": 1.0,
+          "type": "onomatopoeia",
+          "data": {
+            "text": "HAAAA!",
+            "x": 50,
+            "y": 20,
+            "animation": "slam",
+            "fontSize": 38,
+            "color": "#ff3333",
+            "displayDuration": 1.5
+          },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "right",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p05_panel_03",
+      "label": "Close-up perfil — El oponente se prepara (TYPE_B_ACTION)",
+      "artNote": "Panel 3. Mitad derecha. TYPE_B_ACTION. Ángulo PROFILE. Flash rojo + baja el volumen del panel_01 + onomatopeya pop sutil.",
+      "x": 52,
+      "y": 32,
+      "width": 48,
+      "height": 30,
+      "panelType": "TYPE_B_ACTION",
+      "shotType": "CLOSE_UP",
+      "angle": "PROFILE",
+      "entryDirection": "RIGHT",
+      "videoSources": {
+        "action": "/src/assets/pages/page-05/p05_v03_close_action.mp4",
+        "loop": "/src/assets/pages/page-05/p05_v03_close_loop.mp4"
+      },
+      "zIndex": 11,
+      "keyframes": [
+        {
+          "time": 0.3,
+          "type": "flash",
+          "data": { "color": "rgba(255, 50, 50, 0.65)", "duration": 0.4 },
+          "once": true
+        },
+        {
+          "time": 0.5,
+          "type": "ambientVolume",
+          "data": {
+            "targetPanelId": "p05_panel_01",
+            "volume": 0.2,
+            "fadeDuration": 0.5
+          },
+          "once": true
+        },
+        {
+          "time": 0.8,
+          "type": "onomatopoeia",
+          "data": {
+            "text": "TSK!",
+            "x": 35,
+            "y": 18,
+            "animation": "pop",
+            "fontSize": 22,
+            "color": "rgba(220,200,180,0.9)",
+            "displayDuration": 1.0
+          },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "left",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p05_panel_04",
+      "label": "Plano medio — ¡EL CHOQUE! Timeline encadenado masivo (TYPE_B_ACTION)",
+      "artNote": "Panel 4. Centro inferior. EL MOMENTO CLIMÁTICO. 7 keyframes encadenados que prueban prácticamente todo en cascada: shake máximo, flash blanco, onomatopeya masiva, SFX impacto definitivo, visualControl hidden sobre panel_01, weather none, y silence del panel_02.",
+      "x": 10,
+      "y": 64,
+      "width": 80,
+      "height": 22,
+      "panelType": "TYPE_B_ACTION",
+      "shotType": "MEDIUM",
+      "angle": "NORMAL",
+      "entryDirection": "SCALE",
+      "videoSources": {
+        "action": "/src/assets/pages/page-05/p05_v04_med_action.mp4",
+        "loop": "/src/assets/pages/page-05/p05_v04_med_loop.mp4"
+      },
+      "zIndex": 12,
+      "keyframes": [
+        {
+          "time": 0.1,
+          "type": "cameraShake",
+          "data": { "intensity": 10, "duration": 1.0, "axis": "both" },
+          "once": true
+        },
+        {
+          "time": 0.2,
+          "type": "flash",
+          "data": { "color": "rgba(255, 255, 255, 0.95)", "duration": 0.6 },
+          "once": true
+        },
+        {
+          "time": 0.3,
+          "type": "onomatopoeia",
+          "data": {
+            "text": "KRAKATHOOM!!",
+            "x": 35,
+            "y": 15,
+            "animation": "slam",
+            "fontSize": 44,
+            "color": "#ff6600",
+            "displayDuration": 2.5
+          },
+          "once": true
+        },
+        {
+          "time": 0.5,
+          "type": "sfx",
+          "data": { "audioId": "sfx_ultimate_impact", "volume": 1.0 },
+          "once": true
+        },
+        {
+          "time": 0.8,
+          "type": "visualControl",
+          "data": {
+            "targetPanelId": "p05_panel_01",
+            "videoState": "hidden"
+          },
+          "once": true
+        },
+        {
+          "time": 1.0,
+          "type": "weather",
+          "data": { "weather": "none", "transitionDuration": 1.5 },
+          "once": true
+        },
+        {
+          "time": 1.5,
+          "type": "ambientVolume",
+          "data": {
+            "targetPanelId": "p05_panel_02",
+            "volume": 0.0,
+            "fadeDuration": 1.0
+          },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "neutral",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p05_panel_05",
+      "label": "Extreme close-up bajo — El humo se disipa (CLIFFHANGER)",
+      "artNote": "Panel 5. Panel inferior completo. Extreme close-up LOW. Entre el polvo algo brilla. Flash dorado en T=2.0s. Cliffhanger definitivo que cierra el cómic.",
+      "x": 0,
+      "y": 86,
+      "width": 100,
+      "height": 14,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "EXTREME_CLOSE_UP",
+      "angle": "LOW",
+      "entryDirection": "BOTTOM",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-05/p05_v05_xclose_loop.mp4"
+      },
+      "zIndex": 13,
+      "keyframes": [
+        {
+          "time": 1.0,
+          "type": "onomatopoeia",
+          "data": {
+            "text": "...",
+            "x": 50,
+            "y": 20,
+            "animation": "pop",
+            "fontSize": 20,
+            "color": "#ffffff",
+            "displayDuration": 2.0
+          },
+          "once": true
+        },
+        {
+          "time": 2.0,
+          "type": "flash",
+          "data": { "color": "rgba(255, 210, 80, 0.6)", "duration": 0.8 },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "neutral",
+        "axisY": "neutral"
+      }
+    }
+  ]
+}

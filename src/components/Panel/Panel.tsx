@@ -5,6 +5,7 @@ import { useGSAPTimeline } from '@/hooks/useGSAPTimeline'
 import { useAppStore, selectPanelOverride } from '@/store/useAppStore'
 import { audioManager } from '@/managers/AudioManager'
 import { effectsManager } from '@/managers/EffectsManager'
+import { sfxManager } from '@/managers/SfxManager'
 import { shotManager } from '@/managers/ShotManager'
 import { computeEntryDirection, getPanelStyle, getEntryFromVars, getEntryToVars } from '@/utils/coordinates'
 import type { IPanelConfig, IKeyframe } from '@/types'
@@ -15,6 +16,7 @@ import type {
   IVisualControlData,
   IWeatherData,
   IAmbientVolumeData,
+  ISfxData,
 } from '@/types'
 import { ACTION_LOOP_CROSSFADE } from '@/utils/constants'
 import styles from './Panel.module.css'
@@ -77,6 +79,11 @@ export default function Panel({
   const handleKeyframe = useCallback(
     (keyframe: IKeyframe) => {
       switch (keyframe.type) {
+        case 'sfx': {
+          const sd = keyframe.data as ISfxData
+          sfxManager.play(sd.audioId, sd.volume)
+          break
+        }
         case 'cameraShake':
           effectsManager.shake(keyframe.data as ICameraShakeData)
           break

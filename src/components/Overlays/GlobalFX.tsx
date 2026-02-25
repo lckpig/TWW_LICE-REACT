@@ -1,5 +1,6 @@
 import { useEffect, useRef, useCallback } from 'react'
 import { useAppStore, selectGlobalEffects } from '@/store/useAppStore'
+import type { GlobalWeather } from '@/types'
 import { Z_INDEX_GLOBAL_FX } from '@/utils/constants'
 
 interface GlobalFXProps {
@@ -7,9 +8,100 @@ interface GlobalFXProps {
   flashOverlayRef?: (el: HTMLDivElement | null) => void
 }
 
+// ─── Descriptor de una partícula individual ───────────────────────────────────
+interface Particle {
+  x: number
+  y: number
+  speed: number
+  length: number
+  opacity: number
+  drift: number
+}
+
+// ─── Configuración de partículas según tipo de clima ─────────────────────────
+interface WeatherParticleConfig {
+  count: number
+  color: string
+  lineWidth: number
+  isCircle: boolean
+  speedMin: number
+  speedMax: number
+  lengthMin: number
+  lengthMax: number
+  opacityMin: number
+  opacityMax: number
+  driftMin: number
+  driftMax: number
+  /** Si true, el movimiento principal es horizontal (dust) */
+  horizontal: boolean
+}
+
+const WEATHER_CONFIGS: Partial<Record<GlobalWeather, WeatherParticleConfig>> = {
+  rain: {
+    count: 150,
+    color: '#8ab4d4',
+    lineWidth: 1,
+    isCircle: false,
+    speedMin: 8,
+    speedMax: 14,
+    lengthMin: 15,
+    lengthMax: 25,
+    opacityMin: 0.3,
+    opacityMax: 0.8,
+    driftMin: -0.3,
+    driftMax: 0.3,
+    horizontal: false,
+  },
+  snow: {
+    count: 80,
+    color: '#ddeeff',
+    lineWidth: 2,
+    isCircle: true,
+    speedMin: 0.5,
+    speedMax: 1.5,
+    lengthMin: 3,
+    lengthMax: 6,
+    opacityMin: 0.4,
+    opacityMax: 0.9,
+    driftMin: -0.5,
+    driftMax: 0.5,
+    horizontal: false,
+  },
+  fog: {
+    count: 35,
+    color: '#b8c8d8',
+    lineWidth: 1,
+    isCircle: true,
+    speedMin: 0.1,
+    speedMax: 0.4,
+    lengthMin: 40,
+    lengthMax: 100,
+    opacityMin: 0.05,
+    opacityMax: 0.2,
+    driftMin: 0.2,
+    driftMax: 0.6,
+    horizontal: true,
+  },
+  dust: {
+    count: 100,
+    color: '#c4a265',
+    lineWidth: 1,
+    isCircle: false,
+    speedMin: 3,
+    speedMax: 7,
+    lengthMin: 4,
+    lengthMax: 10,
+    opacityMin: 0.2,
+    opacityMax: 0.6,
+    driftMin: -0.5,
+    driftMax: 0.5,
+    horizontal: true,
+  },
+}
+
 // ─── GlobalFX — Efectos visuales globales de la página ───────────────────────
-// Gestiona los overlays de Flash y el canvas de partículas de clima (lluvia/nieve).
-// Lee el estado del store Zustand y reacciona reactivamente.
+// Gestiona los overlays de Flash, niebla y el canvas de partículas de clima.
+// Soporta: rain, snow, fog, dust.
 //
 // En Unity, equivale a los PostProcessing Volumes + Particle Systems
 // que el EffectsManager.cs activa/desactiva.
@@ -18,71 +110,86 @@ export default function GlobalFX({ flashOverlayRef }: GlobalFXProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const rafRef = useRef<number | null>(null)
   const particlesRef = useRef<Particle[]>([])
+  const currentWeatherRef = useRef<GlobalWeather>('none')
 
-  // ── Sistema de partículas básico para lluvia/nieve ────────────────────────
-  interface Particle {
-    x: number
-    y: number
-    speed: number
-    length: number
-    opacity: number
-    drift: number
-  }
-
-  const initParticles = useCallback((count: number, isSnow: boolean) => {
+  // ── Inicializa el array de partículas según configuración de clima ─────────
+  const initParticles = useCallback((weather: GlobalWeather) => {
     const canvas = canvasRef.current
-    if (!canvas) return
+    const cfg = WEATHER_CONFIGS[weather]
+    if (!canvas || !cfg) return
 
-    particlesRef.current = Array.from({ length: count }, () => ({
+    particlesRef.current = Array.from({ length: cfg.count }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      speed: isSnow ? 0.5 + Math.random() * 1 : 8 + Math.random() * 6,
-      length: isSnow ? 3 : 15 + Math.random() * 10,
-      opacity: 0.3 + Math.random() * 0.5,
-      drift: isSnow ? (Math.random() - 0.5) * 0.5 : (Math.random() - 0.5) * 0.3,
+      speed: cfg.speedMin + Math.random() * (cfg.speedMax - cfg.speedMin),
+      length: cfg.lengthMin + Math.random() * (cfg.lengthMax - cfg.lengthMin),
+      opacity: cfg.opacityMin + Math.random() * (cfg.opacityMax - cfg.opacityMin),
+      drift: cfg.driftMin + Math.random() * (cfg.driftMax - cfg.driftMin),
     }))
   }, [])
 
-  const drawParticles = useCallback((isSnow: boolean) => {
+  // ── Loop de dibujo de partículas ──────────────────────────────────────────
+  const drawParticles = useCallback((weather: GlobalWeather) => {
     const canvas = canvasRef.current
     const ctx = canvas?.getContext('2d')
-    if (!canvas || !ctx) return
+    const cfg = WEATHER_CONFIGS[weather]
+    if (!canvas || !ctx || !cfg) return
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     for (const p of particlesRef.current) {
       ctx.save()
       ctx.globalAlpha = p.opacity
-      ctx.strokeStyle = isSnow ? '#ddeeff' : '#8ab4d4'
-      ctx.lineWidth = isSnow ? 2 : 1
+      ctx.strokeStyle = cfg.color
+      ctx.fillStyle = cfg.color
+      ctx.lineWidth = cfg.lineWidth
 
-      if (isSnow) {
+      if (cfg.isCircle) {
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.length / 2, 0, Math.PI * 2)
-        ctx.fillStyle = '#ddeeff'
         ctx.fill()
       } else {
         ctx.beginPath()
-        ctx.moveTo(p.x, p.y)
-        ctx.lineTo(p.x + p.drift * 2, p.y + p.length)
+        if (cfg.horizontal) {
+          // Dust: líneas horizontales
+          ctx.moveTo(p.x, p.y)
+          ctx.lineTo(p.x + p.length, p.y + p.drift * 2)
+        } else {
+          // Rain: líneas verticales con ligero drift
+          ctx.moveTo(p.x, p.y)
+          ctx.lineTo(p.x + p.drift * 2, p.y + p.length)
+        }
         ctx.stroke()
       }
       ctx.restore()
 
-      // Avanza la partícula
-      p.y += p.speed
-      p.x += p.drift
+      // Avanza la partícula según el eje principal del clima
+      if (cfg.horizontal) {
+        p.x += p.speed
+        p.y += p.drift
 
-      // Resetea cuando sale por abajo
-      if (p.y > canvas.height) {
-        p.y = -p.length
-        p.x = Math.random() * canvas.width
+        // Resetea cuando sale por la derecha
+        if (p.x > canvas.width) {
+          p.x = -p.length
+          p.y = Math.random() * canvas.height
+        }
+        if (p.y < 0) p.y = canvas.height
+        if (p.y > canvas.height) p.y = 0
+      } else {
+        p.y += p.speed
+        p.x += p.drift
+
+        // Resetea cuando sale por abajo
+        if (p.y > canvas.height) {
+          p.y = -p.length
+          p.x = Math.random() * canvas.width
+        }
+        if (p.x < 0) p.x = canvas.width
+        if (p.x > canvas.width) p.x = 0
       }
-      if (p.x < 0) p.x = canvas.width
-      if (p.x > canvas.width) p.x = 0
     }
 
-    rafRef.current = requestAnimationFrame(() => drawParticles(isSnow))
+    rafRef.current = requestAnimationFrame(() => drawParticles(weather))
   }, [])
 
   const stopParticles = useCallback(() => {
@@ -99,13 +206,12 @@ export default function GlobalFX({ flashOverlayRef }: GlobalFXProps) {
   // ── Reacciona al cambio de clima ──────────────────────────────────────────
   useEffect(() => {
     stopParticles()
+    currentWeatherRef.current = globalEffects.globalWeather
 
-    if (globalEffects.globalWeather === 'rain') {
-      initParticles(150, false)
-      drawParticles(false)
-    } else if (globalEffects.globalWeather === 'snow') {
-      initParticles(80, true)
-      drawParticles(true)
+    const weather = globalEffects.globalWeather
+    if (weather in WEATHER_CONFIGS) {
+      initParticles(weather)
+      drawParticles(weather)
     }
 
     return stopParticles
@@ -129,8 +235,8 @@ export default function GlobalFX({ flashOverlayRef }: GlobalFXProps) {
     return () => ro.disconnect()
   }, [])
 
-  const isWeatherActive =
-    globalEffects.globalWeather === 'rain' || globalEffects.globalWeather === 'snow'
+  const isParticleWeather = globalEffects.globalWeather in WEATHER_CONFIGS
+  const isFog = globalEffects.globalWeather === 'fog'
 
   return (
     <>
@@ -148,8 +254,23 @@ export default function GlobalFX({ flashOverlayRef }: GlobalFXProps) {
         }}
       />
 
-      {/* Canvas de partículas de clima */}
-      {isWeatherActive && (
+      {/* Overlay de niebla (fog): gradiente radial semitransparente pulsante */}
+      {isFog && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            pointerEvents: 'none',
+            zIndex: Z_INDEX_GLOBAL_FX - 2,
+            background:
+              'radial-gradient(ellipse at 40% 60%, rgba(160,175,190,0.35) 0%, rgba(100,115,130,0.18) 50%, transparent 80%)',
+            animation: 'fogPulse 5s ease-in-out infinite',
+          }}
+        />
+      )}
+
+      {/* Canvas de partículas de clima (rain, snow, fog mist, dust) */}
+      {isParticleWeather && (
         <canvas
           ref={canvasRef}
           style={{

@@ -1,5 +1,5 @@
 {
-  "title": "TWW — The Waking World",
+  "title": "PROYECTO OMEGA — La Batería Definitiva",
   "version": "1.0.0",
   "author": "LCKPIG",
   "pages": [
@@ -8,14 +8,35 @@
       "index": 0,
       "configPath": "/src/config/pages/page-01.json",
       "thumbnail": "/src/assets/pages/page-01/thumbnail.jpg",
-      "title": "Capítulo 1 — El Amanecer"
+      "title": "GENESIS — La Calma Antes de la Tormenta"
     },
     {
       "id": "page-02",
       "index": 1,
       "configPath": "/src/config/pages/page-02.json",
       "thumbnail": "/src/assets/pages/page-02/thumbnail.jpg",
-      "title": "Capítulo 1 — La Decisión"
+      "title": "IMPACTO — El Despertar de la Fuerza"
+    },
+    {
+      "id": "page-03",
+      "index": 2,
+      "configPath": "/src/config/pages/page-03.json",
+      "thumbnail": "/src/assets/pages/page-03/thumbnail.jpg",
+      "title": "CONTROL REMOTO — El Poder de la Causalidad"
+    },
+    {
+      "id": "page-04",
+      "index": 3,
+      "configPath": "/src/config/pages/page-04.json",
+      "thumbnail": "/src/assets/pages/page-04/thumbnail.jpg",
+      "title": "CASCADA — Densidad Máxima"
+    },
+    {
+      "id": "page-05",
+      "index": 4,
+      "configPath": "/src/config/pages/page-05.json",
+      "thumbnail": "/src/assets/pages/page-05/thumbnail.jpg",
+      "title": "CLÍMAX — La Prueba Final"
     }
   ]
 }
