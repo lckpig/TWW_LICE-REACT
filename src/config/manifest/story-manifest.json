@@ -1,0 +1,21 @@
+{
+  "title": "TWW — The Waking World",
+  "version": "1.0.0",
+  "author": "LCKPIG",
+  "pages": [
+    {
+      "id": "page-01",
+      "index": 0,
+      "configPath": "/src/config/pages/page-01.json",
+      "thumbnail": "/src/assets/pages/page-01/thumbnail.jpg",
+      "title": "Capítulo 1 — El Amanecer"
+    },
+    {
+      "id": "page-02",
+      "index": 1,
+      "configPath": "/src/config/pages/page-02.json",
+      "thumbnail": "/src/assets/pages/page-02/thumbnail.jpg",
+      "title": "Capítulo 1 — La Decisión"
+    }
+  ]
+}

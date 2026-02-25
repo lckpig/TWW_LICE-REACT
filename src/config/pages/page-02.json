@@ -1,0 +1,189 @@
+{
+  "id": "page-02",
+  "index": 1,
+  "title": "La Decisión",
+  "backgroundColor": "#080810",
+  "aspectRatio": "9 / 16",
+  "initialWeather": "rain",
+  "pacingProfile": {
+    "totalTaps": 5,
+    "mood": "tension",
+    "hasCliffhanger": true
+  },
+  "panels": [
+    {
+      "id": "p02_panel_01",
+      "label": "Plano detalle — Objeto en el suelo",
+      "artNote": "Apertura de página. Plano extremo detalle. Crea misterio.",
+      "x": 15,
+      "y": 0,
+      "width": 70,
+      "height": 30,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "EXTREME_CLOSE_UP",
+      "angle": "BIRD_EYE",
+      "entryDirection": "FADE",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-02/p02_v01_xclose_loop.mp4"
+      },
+      "zIndex": 10,
+      "keyframes": [
+        {
+          "time": 1.0,
+          "type": "weather",
+          "data": { "weather": "rain", "transitionDuration": 2.0 }
+        }
+      ]
+    },
+    {
+      "id": "p02_panel_02",
+      "label": "Plano medio — Figura en el umbral",
+      "artNote": "Segundo TAP. Zona izquierda. La figura está de espaldas.",
+      "x": 0,
+      "y": 32,
+      "width": 50,
+      "height": 30,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "MEDIUM",
+      "angle": "NORMAL",
+      "entryDirection": "LEFT",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-02/p02_v02_med_loop.mp4"
+      },
+      "zIndex": 11,
+      "keyframes": [],
+      "rule180": {
+        "axisX": "left",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p02_panel_03",
+      "label": "Plano general — Vista de la tormenta",
+      "artNote": "Tercer TAP. Zona derecha. Contraste emocional con el interior.",
+      "x": 52,
+      "y": 32,
+      "width": 48,
+      "height": 30,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "LONG",
+      "angle": "NORMAL",
+      "entryDirection": "RIGHT",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-02/p02_v03_long_loop.mp4"
+      },
+      "zIndex": 11,
+      "keyframes": [
+        {
+          "time": 0.5,
+          "type": "flash",
+          "data": { "color": "rgba(200, 220, 255, 0.6)", "duration": 0.4 },
+          "once": true
+        },
+        {
+          "time": 0.6,
+          "type": "cameraShake",
+          "data": { "intensity": 5, "duration": 0.5, "axis": "both" },
+          "once": true
+        },
+        {
+          "time": 0.7,
+          "type": "sfx",
+          "data": { "audioId": "sfx_thunder", "volume": 0.9 },
+          "once": true
+        }
+      ]
+    },
+    {
+      "id": "p02_panel_04",
+      "label": "Plano close-up — Ojos de la figura",
+      "artNote": "Cuarto TAP. Zona central inferior. Momento de máxima tensión.",
+      "x": 10,
+      "y": 64,
+      "width": 80,
+      "height": 22,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "CLOSE_UP",
+      "angle": "NORMAL",
+      "entryDirection": "SCALE",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-02/p02_v04_close_loop.mp4"
+      },
+      "zIndex": 12,
+      "keyframes": [
+        {
+          "time": 1.5,
+          "type": "onomatopoeia",
+          "data": {
+            "text": "¿Qué...?",
+            "x": 55,
+            "y": 15,
+            "animation": "pop",
+            "fontSize": 20,
+            "color": "#e8e8e8",
+            "displayDuration": 2.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "p02_panel_05",
+      "label": "Plano acción — Cliffhanger: la figura se lanza",
+      "artNote": "Quinto TAP. Panel inferior completo. Acción de cliffhanger que invita al SWIPE UP.",
+      "x": 0,
+      "y": 88,
+      "width": 100,
+      "height": 12,
+      "panelType": "TYPE_B_ACTION",
+      "shotType": "MEDIUM",
+      "angle": "LOW",
+      "entryDirection": "BOTTOM",
+      "videoSources": {
+        "action": "/src/assets/pages/page-02/p02_v05_action.mp4",
+        "loop": "/src/assets/pages/page-02/p02_v05_loop.mp4"
+      },
+      "zIndex": 13,
+      "keyframes": [
+        {
+          "time": 0.5,
+          "type": "cameraShake",
+          "data": { "intensity": 8, "duration": 0.6, "axis": "both" },
+          "once": true
+        },
+        {
+          "time": 0.6,
+          "type": "flash",
+          "data": { "color": "rgba(255, 255, 255, 0.95)", "duration": 0.5 },
+          "once": true
+        },
+        {
+          "time": 0.8,
+          "type": "onomatopoeia",
+          "data": {
+            "text": "CRASH!",
+            "x": 50,
+            "y": 30,
+            "animation": "slam",
+            "fontSize": 48,
+            "color": "#ff3333",
+            "displayDuration": 1.5
+          },
+          "once": true
+        },
+        {
+          "time": 1.0,
+          "type": "ambientVolume",
+          "data": {
+            "targetPanelId": "p02_panel_03",
+            "volume": 0.0,
+            "fadeDuration": 1.0
+          }
+        }
+      ],
+      "rule180": {
+        "axisX": "right",
+        "axisY": "neutral"
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+/* ─── AppShell — Estructura base del viewport ───────────────────────────────── */
+
+.shell {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  overflow: hidden;
+}
+
+/* ─── Viewport centrado donde vive el Page (relación 9:16) ──────────────────── */
+.viewport {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Botón de mute ─────────────────────────────────────────────────────────── */
+.muteBtn {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  color: #fff;
+  padding: 0;
+}
+
+.muteBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}

@@ -1,0 +1,51 @@
+/* ─── Page — Contenedor de la página del cómic ──────────────────────────────── */
+
+.page {
+  /* Contenedor relativo para el posicionamiento absoluto de los panels */
+  position: relative;
+  overflow: hidden;
+
+  /* El aspect-ratio viene inline desde el JSON. Por defecto 9/16. */
+  /* aspect-ratio: 9 / 16; */
+
+  /* Ocupa todo el alto disponible, el ancho se calcula automáticamente */
+  height: 100%;
+  max-height: 100vh;
+
+  /* Centrado si el contenedor padre es más ancho */
+  margin: 0 auto;
+
+  /* Cursor de puntero para indicar interactividad */
+  cursor: pointer;
+
+  /* GPU compositing para transiciones de página suaves */
+  will-change: transform, opacity;
+
+  /* Evita la selección de texto durante los gestos */
+  user-select: none;
+  -webkit-user-select: none;
+
+  /* Previene el scroll nativo en móviles (el SWIPE UP lo maneja useInteraction) */
+  touch-action: none;
+
+  /* Color de fondo base mientras cargan los videos */
+  background-color: #0a0a0a;
+}
+
+/* ─── Indicador de "más contenido" (cliffhanger visual) ──────────────────────── */
+.page::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.page[data-cliffhanger='true']::after {
+  opacity: 1;
+}

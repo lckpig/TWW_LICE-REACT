@@ -1,0 +1,143 @@
+{
+  "id": "page-01",
+  "index": 0,
+  "title": "El Amanecer",
+  "backgroundColor": "#0a0a12",
+  "aspectRatio": "9 / 16",
+  "initialWeather": "none",
+  "pacingProfile": {
+    "totalTaps": 4,
+    "mood": "calm",
+    "hasCliffhanger": false
+  },
+  "panels": [
+    {
+      "id": "p01_panel_01",
+      "label": "Plano general — Ciudad al amanecer",
+      "artNote": "Panel de apertura. Ocupa la mitad superior completa. Establece el mundo.",
+      "x": 0,
+      "y": 0,
+      "width": 100,
+      "height": 48,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "LONG",
+      "angle": "BIRD_EYE",
+      "entryDirection": "FADE",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-01/p01_v01_long_loop.mp4"
+      },
+      "zIndex": 10,
+      "keyframes": [
+        {
+          "time": 2.0,
+          "type": "weather",
+          "data": { "weather": "none", "transitionDuration": 1.0 }
+        }
+      ],
+      "rule180": {
+        "axisX": "neutral",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p01_panel_02",
+      "label": "Plano medio — Protagonista mirando la ciudad",
+      "artNote": "Aparece tras primer TAP. Zona inferior izquierda.",
+      "x": 0,
+      "y": 50,
+      "width": 58,
+      "height": 28,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "MEDIUM",
+      "angle": "NORMAL",
+      "entryDirection": "LEFT",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-01/p01_v02_med_loop.mp4"
+      },
+      "zIndex": 11,
+      "keyframes": [
+        {
+          "time": 1.5,
+          "type": "onomatopoeia",
+          "data": {
+            "text": "...",
+            "x": 60,
+            "y": 20,
+            "animation": "pop",
+            "fontSize": 24,
+            "color": "#ffffff",
+            "displayDuration": 2.0
+          }
+        }
+      ],
+      "rule180": {
+        "axisX": "right",
+        "axisY": "neutral"
+      }
+    },
+    {
+      "id": "p01_panel_03",
+      "label": "Plano detalle — Mano sobre la ventana",
+      "artNote": "Aparece tras segundo TAP. Zona inferior derecha. Close-up emocional.",
+      "x": 60,
+      "y": 50,
+      "width": 40,
+      "height": 28,
+      "panelType": "TYPE_A_LOOP",
+      "shotType": "CLOSE_UP",
+      "angle": "NORMAL",
+      "entryDirection": "RIGHT",
+      "videoSources": {
+        "loop": "/src/assets/pages/page-01/p01_v03_close_loop.mp4"
+      },
+      "zIndex": 12,
+      "keyframes": []
+    },
+    {
+      "id": "p01_panel_04",
+      "label": "Plano acción — Protagonista da la vuelta",
+      "artNote": "Aparece tras tercer TAP. Panel completo inferior. Acción con transición a loop.",
+      "x": 0,
+      "y": 80,
+      "width": 100,
+      "height": 20,
+      "panelType": "TYPE_B_ACTION",
+      "shotType": "MEDIUM",
+      "angle": "LOW",
+      "entryDirection": "BOTTOM",
+      "videoSources": {
+        "action": "/src/assets/pages/page-01/p01_v04_med_action.mp4",
+        "loop": "/src/assets/pages/page-01/p01_v04_med_loop.mp4"
+      },
+      "zIndex": 13,
+      "keyframes": [
+        {
+          "time": 0.8,
+          "type": "cameraShake",
+          "data": { "intensity": 3, "duration": 0.3, "axis": "both" },
+          "once": true
+        },
+        {
+          "time": 1.2,
+          "type": "sfx",
+          "data": { "audioId": "sfx_step", "volume": 0.7 },
+          "once": true
+        },
+        {
+          "time": 1.8,
+          "type": "visualControl",
+          "data": {
+            "targetPanelId": "p01_panel_01",
+            "videoState": "dimmed",
+            "cssFilter": "brightness(0.6)"
+          },
+          "once": true
+        }
+      ],
+      "rule180": {
+        "axisX": "left",
+        "axisY": "neutral"
+      }
+    }
+  ]
+}

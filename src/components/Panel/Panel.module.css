@@ -1,0 +1,38 @@
+/* ─── Panel — Viñeta individual ─────────────────────────────────────────────── */
+
+.panel {
+  /* La posición se aplica inline desde el grid 100x100 */
+  overflow: hidden;
+  border-radius: 3px;
+
+  /* Borde sutil entre viñetas, estético de cómic */
+  outline: 1px solid rgba(255, 255, 255, 0.06);
+
+  /* GPU compositing para suavizar las animaciones de entrada */
+  will-change: transform, opacity;
+  transform-origin: center center;
+
+  /* Evita que el contenido desborde durante el zoom de entrada */
+  backface-visibility: hidden;
+}
+
+/* ─── Capa de video (apiladas para el crossfade ACTION→LOOP) ─────────────────── */
+.videoLayer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Estado de entrada antes de la animación GSAP ──────────────────────────── */
+/* GSAP inicializa opacity/transform vía fromTo, este es el estado "natural" */
+.panel[data-entering='true'] {
+  opacity: 0;
+}
+
+/* ─── Resplandor sutil en el panel activo (indica al usuario que está vivo) ──── */
+.panel[data-active='true'] {
+  outline-color: rgba(255, 255, 255, 0.15);
+  transition: outline-color 0.3s ease;
+}
