@@ -7,10 +7,12 @@ import { useInteraction } from '@/hooks/useInteraction'
 import { useAudioSync } from '@/hooks/useAudioSync'
 import { useAppStore, selectCurrentPanelIndex, selectBackgroundColor } from '@/store/useAppStore'
 import { effectsManager } from '@/managers/EffectsManager'
+import { shotManager } from '@/managers/ShotManager'
+import { computeEntryDirection } from '@/utils/coordinates'
 import { useNarrative } from '@/context/NarrativeContext'
 import { useUI } from '@/context/UIContext'
 import type { IPageConfig, IOnomatopoeiaData } from '@/types'
-import { ASPECT_RATIO_CSS, PAGE_EXIT_DURATION, PAGE_ENTER_DURATION } from '@/utils/constants'
+import { ASPECT_RATIO_CSS, PAGE_EXIT_DURATION, PAGE_ENTER_DURATION, PAGE_FIRST_PANEL_DELAY_MS } from '@/utils/constants'
 import styles from './Page.module.css'
 
 interface PageProps {
@@ -62,7 +64,17 @@ export default function Page({ config }: PageProps) {
     effectsManager.registerFlashOverlay(el)
   }, [])
 
+  // ── Cerrojo de animación — bloquea taps mientras una animación está en curso ─
+  // Independiente del isSwipeLocked del store (que gestiona la carga de página).
+  const tapLocked = useRef(false)
+
+  const lockTapsFor = useCallback((ms: number) => {
+    tapLocked.current = true
+    setTimeout(() => { tapLocked.current = false }, ms)
+  }, [])
+
   // ── Animación de entrada: la página desliza desde abajo al montarse ─────────
+  // También bloquea taps durante PAGE_FIRST_PANEL_DELAY + animación viñeta 1.
   useEffect(() => {
     const el = pageRootRef.current
     if (!el) return
@@ -71,6 +83,13 @@ export default function Page({ config }: PageProps) {
       { y: '100%' },
       { y: '0%', duration: PAGE_ENTER_DURATION, ease: 'power2.out' },
     )
+
+    if (config.panels.length > 0) {
+      const firstPanel = config.panels[0]
+      const entryDir = computeEntryDirection(firstPanel)
+      const ap = shotManager.getAnimationParams(firstPanel.shotType, firstPanel.angle, entryDir, 0)
+      lockTapsFor(PAGE_FIRST_PANEL_DELAY_MS + ap.entryDuration * 1000 + 150)
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -96,13 +115,21 @@ export default function Page({ config }: PageProps) {
 
   // ── TAP: avanza al siguiente panel; si ya no hay más, navega a la página siguiente
   const handleTap = useCallback(() => {
+    if (tapLocked.current) return
+
     const nextIndex = currentPanelIndex + 1
     if (nextIndex >= config.panels.length) {
       handleSwipeUp()
       return
     }
+
+    const nextPanel = config.panels[nextIndex]
+    const entryDir = computeEntryDirection(nextPanel)
+    const ap = shotManager.getAnimationParams(nextPanel.shotType, nextPanel.angle, entryDir, nextIndex)
+    lockTapsFor(ap.entryDuration * 1000 + 150)
+
     advancePanel()
-  }, [currentPanelIndex, config.panels.length, advancePanel, handleSwipeUp])
+  }, [currentPanelIndex, config.panels, advancePanel, handleSwipeUp, lockTapsFor])
 
   // ── Detección de gestos ────────────────────────────────────────────────────
   useInteraction({
@@ -124,8 +151,11 @@ export default function Page({ config }: PageProps) {
   useEffect(() => {
     if (lastAutoRevealedId.current === config.id) return
     if (currentPanelIndex === -1 && config.panels.length > 0) {
-      lastAutoRevealedId.current = config.id
-      advancePanel()
+      const timer = setTimeout(() => {
+        lastAutoRevealedId.current = config.id
+        advancePanel()
+      }, PAGE_FIRST_PANEL_DELAY_MS)
+      return () => clearTimeout(timer)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config.id])

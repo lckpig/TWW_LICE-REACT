@@ -1,8 +1,6 @@
-feat: navegacion por click, fix auto-reveal StrictMode y mejoras UX
+feat: bloqueo de taps durante animaciones de entrada
 
-- Click avanza vineta; al terminar la ultima vineta pasa de pagina (igual que swipe up)
-- Fix mouseup fantasma al cambiar de pagina (guard touchStartTime null)
-- Fix doble auto-reveal vineta 1 en React StrictMode (ref lastAutoRevealedId)
-- Alert + reload al terminar el comic
-- Animacion de entrada de pagina desde abajo (PAGE_ENTER_DURATION)
-- Contador de pagina actual en esquina superior derecha (AppShell HUD)
+- tapLocked ref en Page.tsx bloquea taps mientras una animacion esta en curso
+- Al montar pagina: bloqueado durante delay + animacion viñeta 1 + buffer 150ms
+- En cada tap: bloqueado durante la duracion de animacion del siguiente panel
+- Duracion calculada dinamicamente via ShotManager segun shotType del panel

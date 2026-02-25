@@ -20,6 +20,11 @@ export const PAGE_EXIT_DURATION = 0.6
 /** Duración de la transición de entrada de una nueva página */
 export const PAGE_ENTER_DURATION = 0.8
 
+/** Delay en ms desde que empieza la animación de entrada de página hasta que aparece la viñeta 1.
+ *  Debe ser >= PAGE_ENTER_DURATION * 1000 para que la página haya llegado al centro antes de que
+ *  empiece la animación de la viñeta 1. */
+export const PAGE_FIRST_PANEL_DELAY_MS = 900
+
 /** Duración del Camera Shake por defecto */
 export const DEFAULT_SHAKE_DURATION = 0.4
 
