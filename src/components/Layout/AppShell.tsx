@@ -1,7 +1,8 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import { audioManager } from '@/managers/AudioManager'
 import { useUI } from '@/context/UIContext'
-import { useAppStore, selectGlobalWeather } from '@/store/useAppStore'
+import { useNarrative } from '@/context/NarrativeContext'
+import { useAppStore, selectGlobalWeather, selectCurrentPageIndex } from '@/store/useAppStore'
 import { AMBIENT_VOLUME, Z_INDEX_UI } from '@/utils/constants'
 import styles from './AppShell.module.css'
 
@@ -23,6 +24,8 @@ export default function AppShell({ children }: AppShellProps) {
   const windAudioRef = useRef<HTMLAudioElement | null>(null)
   const { isMuted, toggleMute } = useUI()
   const globalWeather = useAppStore(selectGlobalWeather)
+  const currentPageIndex = useAppStore(selectCurrentPageIndex)
+  const { totalPages } = useNarrative()
 
   // ── Registra los audios globales en el AudioManager ───────────────────────
   useEffect(() => {
@@ -67,6 +70,11 @@ export default function AppShell({ children }: AppShellProps) {
       <main className={styles.viewport}>
         {children}
       </main>
+
+      {/* HUD — Contador de página */}
+      <div className={styles.pageCounter} style={{ zIndex: Z_INDEX_UI }}>
+        {currentPageIndex + 1} / {totalPages}
+      </div>
 
       {/* HUD — Botón de mute persistente */}
       <button

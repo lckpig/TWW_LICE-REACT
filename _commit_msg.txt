@@ -1,0 +1,8 @@
+feat: navegacion por click, fix auto-reveal StrictMode y mejoras UX
+
+- Click avanza vineta; al terminar la ultima vineta pasa de pagina (igual que swipe up)
+- Fix mouseup fantasma al cambiar de pagina (guard touchStartTime null)
+- Fix doble auto-reveal vineta 1 en React StrictMode (ref lastAutoRevealedId)
+- Alert + reload al terminar el comic
+- Animacion de entrada de pagina desde abajo (PAGE_ENTER_DURATION)
+- Contador de pagina actual en esquina superior derecha (AppShell HUD)

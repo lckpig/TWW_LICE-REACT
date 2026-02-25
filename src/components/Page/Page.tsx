@@ -10,7 +10,7 @@ import { effectsManager } from '@/managers/EffectsManager'
 import { useNarrative } from '@/context/NarrativeContext'
 import { useUI } from '@/context/UIContext'
 import type { IPageConfig, IOnomatopoeiaData } from '@/types'
-import { ASPECT_RATIO_CSS, PAGE_EXIT_DURATION } from '@/utils/constants'
+import { ASPECT_RATIO_CSS, PAGE_EXIT_DURATION, PAGE_ENTER_DURATION } from '@/utils/constants'
 import styles from './Page.module.css'
 
 interface PageProps {
@@ -62,12 +62,17 @@ export default function Page({ config }: PageProps) {
     effectsManager.registerFlashOverlay(el)
   }, [])
 
-  // ── TAP: avanza al siguiente panel ────────────────────────────────────────
-  const handleTap = useCallback(() => {
-    const nextIndex = currentPanelIndex + 1
-    if (nextIndex >= config.panels.length) return
-    advancePanel()
-  }, [currentPanelIndex, config.panels.length, advancePanel])
+  // ── Animación de entrada: la página desliza desde abajo al montarse ─────────
+  useEffect(() => {
+    const el = pageRootRef.current
+    if (!el) return
+    gsap.fromTo(
+      el,
+      { y: '100%' },
+      { y: '0%', duration: PAGE_ENTER_DURATION, ease: 'power2.out' },
+    )
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // ── SWIPE UP: transición a la página siguiente ────────────────────────────
   const handleSwipeUp = useCallback(() => {
@@ -89,6 +94,16 @@ export default function Page({ config }: PageProps) {
     })
   }, [goToNextPage])
 
+  // ── TAP: avanza al siguiente panel; si ya no hay más, navega a la página siguiente
+  const handleTap = useCallback(() => {
+    const nextIndex = currentPanelIndex + 1
+    if (nextIndex >= config.panels.length) {
+      handleSwipeUp()
+      return
+    }
+    advancePanel()
+  }, [currentPanelIndex, config.panels.length, advancePanel, handleSwipeUp])
+
   // ── Detección de gestos ────────────────────────────────────────────────────
   useInteraction({
     targetRef: pageRootRef,
@@ -100,8 +115,16 @@ export default function Page({ config }: PageProps) {
   // currentPanelIndex empieza en -1 (ningún panel visible). Este efecto avanza
   // automáticamente al panel 0 al montar, para que el usuario vea algo sin
   // necesitar un TAP previo. Se dispara solo cuando cambia la página (config.id).
+  //
+  // Usamos lastAutoRevealedId (ref con el config.id ya revelado) como guardia
+  // frente al doble montaje de React StrictMode: la ref persiste entre el
+  // desmontaje/remontaje, así que el segundo ciclo ve el id ya almacenado y salta.
+  const lastAutoRevealedId = useRef<string | null>(null)
+
   useEffect(() => {
+    if (lastAutoRevealedId.current === config.id) return
     if (currentPanelIndex === -1 && config.panels.length > 0) {
+      lastAutoRevealedId.current = config.id
       advancePanel()
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps

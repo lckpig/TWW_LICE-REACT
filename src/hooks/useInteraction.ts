@@ -62,7 +62,8 @@ export function useInteraction({
 
     const handleMouseUp = (e: MouseEvent) => {
       if (e.button !== 0) return
-      const elapsed = touchStartTime.current ? Date.now() - touchStartTime.current : 0
+      if (touchStartTime.current === null) return
+      const elapsed = Date.now() - touchStartTime.current
       if (elapsed < TAP_MAX_DURATION_MS) handleTap()
       touchStartTime.current = null
     }

@@ -129,8 +129,14 @@ export function NarrativeProvider({
   )
 
   const goToNextPage = useCallback(() => {
+    if (manifest && currentPageIndex >= manifest.pages.length - 1) {
+      // TODO: reemplazar por pantalla de fin de cómic
+      alert('¡Has terminado el cómic!')
+      window.location.reload()
+      return
+    }
     goToPage(currentPageIndex + 1)
-  }, [currentPageIndex, goToPage])
+  }, [currentPageIndex, goToPage, manifest])
 
   const goToPrevPage = useCallback(() => {
     goToPage(currentPageIndex - 1)
