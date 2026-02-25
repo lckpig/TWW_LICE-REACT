@@ -20,32 +20,19 @@
   justify-content: center;
 }
 
-/* ─── Contador de página ────────────────────────────────────────────────────── */
-.pageCounter {
+/* ─── Esquina superior derecha: botón fullscreen ─────────────────────────────── */
+.topRightHUD {
   position: fixed;
   top: 16px;
   right: 16px;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 4px 10px;
-  font-size: 12px;
-  font-family: monospace;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 0.1em;
-  pointer-events: none;
 }
 
-/* ─── Botón de mute ─────────────────────────────────────────────────────────── */
-.muteBtn {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
+.fullscreenBtn {
+  width: 40px;
+  height: 40px;
   background: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,6 +43,22 @@
   padding: 0;
 }
 
-.muteBtn:hover {
+.fullscreenBtn:hover {
   background: rgba(255, 255, 255, 0.15);
+}
+
+/* ─── Esquina inferior derecha: paginador ────────────────────────────────────── */
+.bottomRightHUD {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.1em;
+  pointer-events: none;
 }

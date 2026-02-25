@@ -1,6 +1,5 @@
-import { useEffect, useRef, type ReactNode } from 'react'
+import { useEffect, useRef, useState, useCallback, type ReactNode } from 'react'
 import { audioManager } from '@/managers/AudioManager'
-import { useUI } from '@/context/UIContext'
 import { useNarrative } from '@/context/NarrativeContext'
 import { useAppStore, selectGlobalWeather, selectCurrentPageIndex } from '@/store/useAppStore'
 import { AMBIENT_VOLUME, Z_INDEX_UI } from '@/utils/constants'
@@ -15,14 +14,13 @@ interface AppShellProps {
 //   1. El contenedor visual centrado (viewport)
 //   2. Los elementos <audio> globales persistentes (lluvia, viento)
 //      que sobreviven entre viñetas porque están FUERA del componente Page.
-//   3. El HUD mínimo de la UI (botón mute)
+//   3. El HUD mínimo de la UI (fullscreen, paginador)
 //
 // En Unity, equivale al GameManager GameObject que existe en todas
 // las escenas y contiene los AudioSource de ambiente global.
 export default function AppShell({ children }: AppShellProps) {
   const rainAudioRef = useRef<HTMLAudioElement | null>(null)
   const windAudioRef = useRef<HTMLAudioElement | null>(null)
-  const { isMuted, toggleMute } = useUI()
   const globalWeather = useAppStore(selectGlobalWeather)
   const currentPageIndex = useAppStore(selectCurrentPageIndex)
   const { totalPages } = useNarrative()
@@ -64,6 +62,25 @@ export default function AppShell({ children }: AppShellProps) {
     }
   }, [globalWeather])
 
+  // ── Fullscreen ─────────────────────────────────────────────────────────────
+  const [isFullscreen, setIsFullscreen] = useState(!!document.fullscreenElement)
+
+  const toggleFullscreen = useCallback(() => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen()
+      setIsFullscreen(true)
+    } else {
+      document.exitFullscreen()
+      setIsFullscreen(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    const handler = () => setIsFullscreen(!!document.fullscreenElement)
+    document.addEventListener('fullscreenchange', handler)
+    return () => document.removeEventListener('fullscreenchange', handler)
+  }, [])
+
   return (
     <div className={styles.shell}>
       {/* Contenido principal (Page) */}
@@ -71,20 +88,26 @@ export default function AppShell({ children }: AppShellProps) {
         {children}
       </main>
 
-      {/* HUD — Contador de página */}
-      <div className={styles.pageCounter} style={{ zIndex: Z_INDEX_UI }}>
-        {currentPageIndex + 1} / {totalPages}
+      {/* HUD — Esquina superior derecha: botón fullscreen */}
+      <div className={styles.topRightHUD} style={{ zIndex: Z_INDEX_UI }}>
+        <button
+          className={styles.fullscreenBtn}
+          onClick={toggleFullscreen}
+          aria-label={
+            isFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'
+          }
+        >
+          {isFullscreen ? '⊟' : '⊞'}
+        </button>
       </div>
 
-      {/* HUD — Botón de mute persistente */}
-      <button
-        className={styles.muteBtn}
-        onClick={toggleMute}
-        aria-label={isMuted ? 'Activar sonido' : 'Silenciar'}
+      {/* HUD — Esquina inferior derecha: paginador */}
+      <div
+        className={styles.bottomRightHUD}
         style={{ zIndex: Z_INDEX_UI }}
       >
-        {isMuted ? '🔇' : '🔊'}
-      </button>
+        {currentPageIndex + 1} / {totalPages}
+      </div>
 
       {/* Audio global de lluvia (fuera del Page para que no se reinicie) */}
       <audio
